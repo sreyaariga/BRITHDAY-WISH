@@ -1,12 +1,17 @@
 :root {
-    --bg-color: #0f0c29;
-    --bg-gradient: linear-gradient(301deg, #0f0c29, #302b63, #24243e);
-    --primary: #ffd700; /* Gold */
-    --accent: #ff00cc; /* Neon Pink */
-    --text-main: #ffffff;
-    --text-muted: #e0e0e0;
-    --glass-bg: rgba(255, 255, 255, 0.1);
-    --glass-border: rgba(255, 255, 255, 0.2);
+    --bg-color: #ffe6ea;
+    /* Baby Pink Light */
+    --bg-gradient: linear-gradient(135deg, #ffe6ea, #fff0f5, #ffd1dc);
+    /* Soft Pink Gradient */
+    --primary: #ff69b4;
+    /* Hot Pink for accents */
+    --accent: #ffb6c1;
+    /* Light Pink */
+    --text-main: #5a3e36;
+    /* Soft Brown for contrast against pink */
+    --text-muted: #8b5a2b;
+    --glass-bg: rgba(255, 255, 255, 0.4);
+    --glass-border: rgba(255, 255, 255, 0.6);
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
 }
@@ -67,8 +72,15 @@ body {
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(30px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(30px);
+    }
 }
 
 /* Container */
@@ -97,7 +109,8 @@ body {
 .hidden {
     opacity: 0;
     pointer-events: none;
-    transform: translate(-50%, -40%); /* Slightly up */
+    transform: translate(-50%, -40%);
+    /* Slightly up */
 }
 
 .active {
@@ -111,7 +124,7 @@ body {
     font-family: var(--font-heading);
     font-size: 3rem;
     margin-bottom: 1rem;
-    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     animation: fadeInUp 1s ease-out;
 }
 
@@ -154,7 +167,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(255,255,255,0.4) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.4) 0%, transparent 70%);
     opacity: 0;
     transform: scale(0.5);
     transition: opacity 0.3s, transform 0.3s;
@@ -205,19 +218,77 @@ body {
 }
 
 .decorations {
-    font-size: 2rem;
-    margin-bottom: 2rem;
     display: flex;
     justify-content: center;
     gap: 15px;
+    align-items: center;
+}
+
+.dancing-bear {
+    width: 100px;
+    height: auto;
+    animation: dance 2s infinite ease-in-out;
+}
+
+@keyframes dance {
+
+    0%,
+    100% {
+        transform: rotate(-5deg) translateY(0);
+    }
+
+    50% {
+        transform: rotate(5deg) translateY(-10px);
+    }
+}
+
+/* Countdown Styles */
+.countdown-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 2rem;
+}
+
+.time-box {
+    background: rgba(255, 255, 255, 0.3);
+    padding: 10px;
+    border-radius: 10px;
+    min-width: 70px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.time-box span {
+    display: block;
+    font-weight: bold;
+    color: var(--text-main);
+}
+
+.time-box #days,
+.time-box #hours,
+.time-box #minutes,
+.time-box #seconds {
+    font-size: 1.5rem;
+    color: var(--primary);
+}
+
+.time-box .label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
 }
 
 .emoji {
     animation: bounce 2s infinite;
 }
 
-.emoji:nth-child(2) { animation-delay: 0.2s; }
-.emoji:nth-child(3) { animation-delay: 0.4s; }
+.emoji:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.emoji:nth-child(3) {
+    animation-delay: 0.4s;
+}
 
 .secondary-btn {
     background: transparent;
@@ -252,6 +323,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -259,13 +331,28 @@ body {
 }
 
 @keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
-    .title { font-size: 2rem; }
-    .name-placeholder { font-size: 2.5rem; }
-    .glass-card { padding: 2rem; }
+    .title {
+        font-size: 2rem;
+    }
+
+    .name-placeholder {
+        font-size: 2.5rem;
+    }
+
+    .glass-card {
+        padding: 2rem;
+    }
 }
